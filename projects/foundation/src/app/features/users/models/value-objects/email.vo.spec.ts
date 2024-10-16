@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Email, EmailSchema } from './email.vo';
+import { Email, emailSchema } from './email.vo';
 
 describe('Email', () => {
   it('should create', () => {
@@ -9,27 +9,27 @@ describe('Email', () => {
   });
 
   it('should be false', () => {
-    const result = EmailSchema.safeParse('testtest.fr');
+    const result = emailSchema.safeParse('testtest.fr');
 
-    expect(result.success).toBeFalsy()
+    expect(result.success).toBeFalsy();
   });
 
   it('should be false', () => {
-    const result = EmailSchema.safeParse('@t.com');
+    const result = emailSchema.safeParse('@t.com');
 
-    expect(result.success).toBeFalsy()
+    expect(result.success).toBeFalsy();
   });
 
   it('should be truth', () => {
-    const result = EmailSchema.safeParse('testtest.fr');
+    const result = emailSchema.safeParse('testtest.fr');
 
-    expect(result.error).toBeInstanceOf(z.ZodError)
+    expect(result.error).toBeInstanceOf(z.ZodError);
   });
 
   it('should throw an invalid email', () => {
-    const result = EmailSchema.safeParse('testtest.fr');
+    const result = emailSchema.safeParse('testtest.fr');
     const message: string | undefined = result.error?.flatten().formErrors[0];
 
-    expect(message).toEqual("Provide Valid Email Address");
+    expect(message).toEqual('Provide Valid Email Address');
   });
 });

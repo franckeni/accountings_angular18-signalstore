@@ -1,8 +1,8 @@
 import { z } from 'zod';
 import { ValueObject } from 'zod-value-object'
 
-const MIN_LENGTH: number = 5;
+const MIN_LENGTH = 5;
 
-export const EmailSchema = z.string().email({message: "Provide Valid Email Address"}).min(MIN_LENGTH);
+export const emailSchema = z.string().email({message: "Provide Valid Email Address"}).min(MIN_LENGTH);
 
-export class Email extends ValueObject('Email', EmailSchema) {}
+export class Email extends ValueObject('Email', emailSchema) {}

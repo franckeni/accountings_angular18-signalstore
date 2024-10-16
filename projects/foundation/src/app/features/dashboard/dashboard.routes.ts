@@ -3,7 +3,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ListAccountsTypeComponent } from './components/accounts-type/list/list-accounts-type.component';
 import { ROUTES_PATHS } from '../../shared/utils/constants';
 import { accountsTypeGetUsecaseResolver } from '../../adapters/accounts-type/resolvers';
-import { AccountsTypeGetUsecaseProvider } from '../../adapters/accounts-type/providers';
+import { accountsTypeGetUsecaseProvider } from '../../adapters/accounts-type/providers';
 
 /**
  * Edit, Create and Delete routes here point to the same component
@@ -14,21 +14,21 @@ import { AccountsTypeGetUsecaseProvider } from '../../adapters/accounts-type/pro
  * Delete has the same Resolver as Edit because item need to be selected
  * in dialog component before user confirm it deletion
  */
-export const dashboard_routes: Routes = [
+export const dashboardRoutes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: ROUTES_PATHS.AccountsType.list, component: ListAccountsTypeComponent },
-  { path: ROUTES_PATHS.AccountsType.create, component: ListAccountsTypeComponent },
-  { path: ROUTES_PATHS.AccountsType.edit+'/:id', component: ListAccountsTypeComponent,
+  { path: ROUTES_PATHS.AccountsTypeList, component: ListAccountsTypeComponent },
+  { path: ROUTES_PATHS.AccountsTypeCreate, component: ListAccountsTypeComponent },
+  { path: ROUTES_PATHS.AccountsTypeEdit+'/:id', component: ListAccountsTypeComponent,
     resolve: {
       accountsTypeGet: accountsTypeGetUsecaseResolver
     }, 
-    providers: [AccountsTypeGetUsecaseProvider] 
+    providers: [accountsTypeGetUsecaseProvider] 
   },
-  { path: ROUTES_PATHS.AccountsType.delete+'/:id', component: ListAccountsTypeComponent,
+  { path: ROUTES_PATHS.AccountsTypeDelete+'/:id', component: ListAccountsTypeComponent,
     resolve: {
       accountsTypeGet: accountsTypeGetUsecaseResolver
     }, 
-    providers: [AccountsTypeGetUsecaseProvider] 
+    providers: [accountsTypeGetUsecaseProvider] 
   },
-  { path: '**', redirectTo: ROUTES_PATHS.AccountsType.list }
+  { path: '**', redirectTo: ROUTES_PATHS.AccountsTypeList }
 ]

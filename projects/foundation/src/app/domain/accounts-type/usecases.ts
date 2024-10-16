@@ -1,4 +1,4 @@
-import { Observable, Unsubscribable } from "rxjs";
+import { Unsubscribable } from "rxjs";
 import { Id } from "../../shared/valueObjects/id.vo";
 import { BaseUsecase } from "../base/usecase";
 import { AccountsType } from "./models";

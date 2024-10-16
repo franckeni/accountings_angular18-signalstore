@@ -1,15 +1,15 @@
-import { z } from "zod";
-import { Email, EmailSchema } from "./value-objects/email.vo";
-import { Password, PasswordSchema } from "./value-objects/password.vo";
+import { z } from 'zod';
+import { Email, emailSchema } from './value-objects/email.vo';
+import { Password, passwordSchema } from './value-objects/password.vo';
 
-export const UserModelSchema = z.object({
-    email: EmailSchema,
-    password: PasswordSchema
-})
+export const userModelSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+});
 
 export class UserModel {
-    constructor(
-        public readonly email: Email,
-        public readonly password: Password
-        ) {}
+  constructor(
+    public readonly email: Email,
+    public readonly password: Password,
+  ) {}
 }

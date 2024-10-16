@@ -1,4 +1,4 @@
-import { AccountsType, AccountsTypeResponseDTO } from "../../../domain/accounts-type/models";
+import { AccountsTypeListResponseDTO, AccountsTypeResponseDTO } from "../../../domain/accounts-type/models";
 import { ErrorType } from "../../../shared/models/error";
 
 export interface AccountsTypeState {
@@ -10,9 +10,9 @@ export interface AccountsTypeState {
             submitButtonText?: string,
              cancelButtonText?: string};
     isLoading: boolean;
-    nestedItems?: any;
+    nestedItems?: AccountsTypeListResponseDTO;
     selected: AccountsTypeResponseDTO | null;
-    items: any;
+    items: AccountsTypeListResponseDTO;
 };
 
 export const initialState: AccountsTypeState = {

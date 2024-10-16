@@ -1,15 +1,15 @@
 import { Provider } from '@angular/core';
-import { DeleteUsecase, GetUsecase, ListUsecase } from '../../domain/accounts-type/usecases';
+import { GetUsecase, ListUsecase } from '../../domain/accounts-type/usecases';
 import { AccountsTypeStoreAdapter } from './state/store.adapter';
 
-export const AccountsTypeListUsecaseProvider: Provider = {
-  provide: ListUsecase, 
+export const accountsTypeListUsecaseProvider: Provider = {
+  provide: ListUsecase,
   deps: [AccountsTypeStoreAdapter],
-  useFactory: (storeGateway: AccountsTypeStoreAdapter) => new ListUsecase(storeGateway)
-}
+  useFactory: (storeGateway: AccountsTypeStoreAdapter) => new ListUsecase(storeGateway),
+};
 
-export const AccountsTypeGetUsecaseProvider: Provider = {
-  provide: GetUsecase, 
+export const accountsTypeGetUsecaseProvider: Provider = {
+  provide: GetUsecase,
   deps: [AccountsTypeStoreAdapter],
-  useFactory: (storeGateway: AccountsTypeStoreAdapter) => new GetUsecase(storeGateway)
-}
+  useFactory: (storeGateway: AccountsTypeStoreAdapter) => new GetUsecase(storeGateway),
+};

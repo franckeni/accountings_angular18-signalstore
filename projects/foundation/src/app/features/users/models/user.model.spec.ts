@@ -1,6 +1,5 @@
-import { z } from 'zod';
 import { expect, test} from '@jest/globals';
-import { UserModel, UserModelSchema } from './user.model';
+import { UserModel } from './user.model';
 import { Email } from './value-objects/email.vo';
 import { Password } from './value-objects/password.vo';
 

@@ -1,6 +1,5 @@
-import { z } from 'zod';
 import { expect, test} from '@jest/globals';
-import { AccountsType } from './models';
+import { AccountsTypeSchema } from './models';
 import { Title } from './values-object/title.vo';
 import { AccountsTypeParentNumber } from './values-object/number.vo';
 
@@ -14,7 +13,7 @@ describe('AccountsType', () => {
     const title = new Title('les comptes de capitaux');
     const classNumber = new AccountsTypeParentNumber(1);
 
-    const model = new AccountsType(title, classNumber);
+    const model = AccountsTypeSchema.safeParse({title, classNumber});
 
     expect(model).toMatchObject({
       title,

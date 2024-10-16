@@ -6,7 +6,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ErrorService {
-  constructor() {}
 
   // Error
   handleError(error: ErrorType) {
@@ -14,7 +13,7 @@ export class ErrorService {
 
     if (error instanceof HttpErrorResponse) {
       // client-side error
-      msg = error.error.detail ?? error.error.message ?? error.name+' '+error.statusText ?? error.message;
+      msg = error.error.detail ?? error.error.message ;
     } else if (error instanceof Error) {
       // server-side error
       msg = error.message;

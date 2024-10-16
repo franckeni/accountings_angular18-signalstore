@@ -7,7 +7,7 @@
         <div class="fs-8 fw-bold text-center lh-norm p-1">{{ 'Retour' }}</div>
     </div>
     <div class="d-flex flex-column px-3 align-items-center">
-        <button mat-mini-fab (click)="openDialogFormAction(null, ACTIONS.create)" aria-label="add pcg" class="bg-info">
+        <button mat-mini-fab (click)="openDialogFormAction(null, ACTIONS.Create)" aria-label="add pcg" class="bg-info">
             <mat-icon class="fw-bold">add</mat-icon>
         </button>
         <div class="fs-8 fw-bold text-center lh-norm p-1">{{ 'Ajouter' }}</div>
@@ -29,9 +29,9 @@
                 </div>
                 <div class="d-flex justify-content-center actions">
                     <mat-icon class="fs-6 fw-bold cursor-pointer" color="primary" fontSet="fas" fontIcon="fa-edit"
-                    (click)="openDialogFormAction(item, ACTIONS.edit)"></mat-icon>
+                    (click)="openDialogFormAction(item, ACTIONS.Edit)"></mat-icon>
                     <mat-icon class="fs-6 fw-bold cursor-pointer" color="warn" fontSet="fas" fontIcon="fa-trash-alt"
-                    (click)="openDialogFormAction(item, ACTIONS.delete)"></mat-icon>
+                    (click)="openDialogFormAction(item, ACTIONS.Delete)"></mat-icon>
                 </div>
             </div>
         }

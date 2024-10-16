@@ -13,10 +13,10 @@ export interface SettingState {
 const initialState: SettingState = {
   isLoaded: false,
   data: null,
-}
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SettingsService {
   private readonly state = new BehaviorSubject<SettingState>(initialState);
@@ -26,19 +26,22 @@ export class SettingsService {
 
   load(): Observable<void> {
     return this._http.get<ISetting>('assets/env.json').pipe(
-      map( (config) => {
-        this.state.next({ 
-          isLoaded: true, 
-          data: config.services.api.baseUrl.startsWith('$') ? environment : config})
-      })
+      map((config) => {
+        this.state.next({
+          isLoaded: true,
+          data: config.services.api.baseUrl.startsWith('$') ? environment : config,
+        });
+      }),
     );
   }
 
   // Get the first config from observable when the env.json file is loaded
   getConfig(): ISetting | null | undefined {
-    return toSignal(this.state$.pipe(
-      first((config) => config.isLoaded),
-      map(({ data }) => data)
-    ))();
+    return toSignal(
+      this.state$.pipe(
+        first((config) => config.isLoaded),
+        map(({ data }) => data),
+      ),
+    )();
   }
 }

@@ -1,14 +1,15 @@
 <h1 mat-dialog-title class="text-decoration-underline text-underline-offset text-uppercase fw-bold fs-6">
-    {{ store.dialog.title() }}</h1>
+  {{ store.dialog.title() }}
+</h1>
 <div mat-dialog-content>
   <p class="my-3 fw-bold">{{ currentElement!.title! }}</p>
 </div>
 <div mat-dialog-actions>
-    <button class="btn btn-info text-white" mat-dialog-close cdkFocusInitial>
-        <span>{{ store.dialog.cancelButtonText!() }}</span>
-    </button>
-    <button class="btn btn-danger close-button d-flex ms-2" mat-dialog-close cdkFocusInitial (click)="confirmDelete()">
-        <span>{{ store.dialog.submitButtonText!() }}</span>
-        <mat-icon color="white">close</mat-icon>
-    </button>
+  <button class="btn btn-info text-white" mat-dialog-close cdkFocusInitial>
+    <span>{{ store.dialog.cancelButtonText!() }}</span>
+  </button>
+  <button class="btn btn-danger close-button d-flex ms-2" mat-dialog-close cdkFocusInitial (click)="confirmDelete()">
+    <span>{{ store.dialog.submitButtonText!() }}</span>
+    <mat-icon color="white">close</mat-icon>
+  </button>
 </div>
