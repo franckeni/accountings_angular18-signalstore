@@ -1,5 +1,4 @@
-# angular18-ssr-foundation
-### Angular 18.2.1 base project with: 
+# Angular 18.2.1 base project with: 
 #####    - Hexagonal Architecture (ports, adapters, data objects, value objects)
 #####    - bootstrap and angular material
 #####    - TDD with jest library
