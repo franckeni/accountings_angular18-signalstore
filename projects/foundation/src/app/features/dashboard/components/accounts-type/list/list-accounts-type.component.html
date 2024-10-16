@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-between px-3 align-items-center my-5">
+    <div class="d-flex flex-column px-3 align-items-center">
+        <button mat-mini-fab [routerLink]="['/dashboard']" aria-label="back to dashboard" 
+            (click)="this.store.resetSelected()" aria-label="add pcg" class="bg-dark-subtle">
+            <mat-icon class="fw-bold">chevron_left</mat-icon>
+        </button>
+        <div class="fs-8 fw-bold text-center lh-norm p-1">{{ 'Retour' }}</div>
+    </div>
+    <div class="d-flex flex-column px-3 align-items-center">
+        <button mat-mini-fab (click)="openDialogFormAction(null, ACTIONS.create)" aria-label="add pcg" class="bg-info">
+            <mat-icon class="fw-bold">add</mat-icon>
+        </button>
+        <div class="fs-8 fw-bold text-center lh-norm p-1">{{ 'Ajouter' }}</div>
+    </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center my-5">
+    @defer (when (store.showList())) {
+        @for (item of store.items(); track $index) {
+            <div class="large-box d-flex flex-column mat-elevation-z1 cursor-pointer border" >
+                <div class="d-flex align-items-center justify-content-center align-items-center">
+                    <p class="fs-6 text-decoration-underline">{{ 'Compte' }}</p>
+                    <p class="fs-6">&nbsp;:&nbsp;<b>{{ item['classNumber'] }}</b></p>
+                </div>
+                <div>
+                    <i class='fas fa-balance-scale' style='font-size:55px;color: teal;'></i>
+                </div>
+                <div class="text-center overflow-hidden mt-1">
+                    <p class="fs-6"><b>{{ item['title'] }}</b></p>
+                </div>
+                <div class="d-flex justify-content-center actions">
+                    <mat-icon class="fs-6 fw-bold cursor-pointer" color="primary" fontSet="fas" fontIcon="fa-edit"
+                    (click)="openDialogFormAction(item, ACTIONS.edit)"></mat-icon>
+                    <mat-icon class="fs-6 fw-bold cursor-pointer" color="warn" fontSet="fas" fontIcon="fa-trash-alt"
+                    (click)="openDialogFormAction(item, ACTIONS.delete)"></mat-icon>
+                </div>
+            </div>
+        }
+    } @placeholder {
+        <!-- Error Template -->
+        <div class="loading-shade d-flex justify-content-center">
+            <mat-spinner ></mat-spinner>
+        </div>
+    } @loading(minimum 0.2s) {
+        <div class="loading-shade d-flex justify-content-center">
+            <mat-spinner ></mat-spinner>
+        </div>
+    } @error {
+        <!-- This part not trigger. To be checked later.-->
+        <div class="d-flex justify-content-center">
+            <app-http-error 
+                [height]="true"></app-http-error>
+        </div>
+    }
+</div>

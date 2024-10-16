@@ -1,0 +1,19 @@
+#version: '3'
+# login: user
+# password: bitnami
+services:
+  angular-ssr:
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    image: fafosoule/haen-stam-front-ssr:latest
+    container_name: front-ssr
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      PROD: true
+      DEPLOY_ENV: "prod"
+      API_URL: "http://192.168.56.14:8080"
+      CRYPTO_KEY: "jjknf)jkGJD.DK4546h_hjqsd" 
+      AWS_DEFAULT_REGION: "eu-west-3"

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css';
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Arial', sans-serif;
+  font-size: 0.7rem !important;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #525f7f;
+  text-align: left;
+  //background-color: teal;
+}
+label {
+  width: 100%;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.green-snackbar {
+  --mdc-snackbar-container-color: teal !important;
+  text-align: center;
+}
+.red-snackbar {
+  --mdc-snackbar-container-color: #f44336 !important;
+  text-align: center;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.text-underline-offset {
+  text-underline-offset: 5px;
+}

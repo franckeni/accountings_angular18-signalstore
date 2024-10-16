@@ -1,0 +1,32 @@
+<button class="btn btn-danger close-button position-absolute top-0 end-0" [mat-dialog-close]="false">
+    <mat-icon class="d-flex" color="white">close</mat-icon>
+</button>
+<div mat-dialog-content class="mat-typography">
+    <ng-container>
+        <div class="text-center text-decoration-underline text-underline-offset text-uppercase fw-bold">
+            {{ store.dialog.title()  }}
+        </div>
+    </ng-container>
+    <form [formGroup]="mainFormGroup">
+        <mat-form-field appearance="fill" [hidden]="true">
+            <input matInput formControlName="id">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'Title'  }}</mat-label>
+            <input matInput formControlName="title" placeholder="{{ 'Title'  }}" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>{{ 'Class Number'  }}( 1 {{ 'Number Required'  }} )</mat-label>
+            <input type="number" matInput formControlName="classNumber" required readonly={{readonlyClassNumber}}
+            placeholder="{{ 'Class Number'  }}( 1 {{ 'Number Required'  }} )"  maxlength="1">
+            <mat-hint class="text-danger">{{ classNumberHint }}</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill" [hidden]="true">
+            <input matInput formControlName="parentId">
+        </mat-form-field>
+        <div class="stepper-buttons">
+            <button class="btn btn-success" type="submit" [disabled]="mainFormGroup.invalid" 
+            (click)="onSubmitForm()">{{ store.dialog.submitButtonText!() }}</button>
+        </div>
+    </form>
+</div>

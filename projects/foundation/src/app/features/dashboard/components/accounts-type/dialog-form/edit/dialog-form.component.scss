@@ -1,0 +1,29 @@
+.close-button {
+  z-index: 1;
+}
+
+.mat-mdc-dialog-content {
+  max-height: fit-content;
+}
+
+.stepper {
+  margin-top: 8px;
+}
+
+.mdc-dialog__container {
+  display: flex;
+  justify-content: center !important;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem !important;
+
+  mat-form-field {
+    margin-bottom: 1rem;
+  }
+}
+.selectionList {
+  width: 160px;
+}

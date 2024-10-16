@@ -1,0 +1,16 @@
+.error-message {
+  background: #eee;
+  padding: 1rem;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.container {
+  height: -webkit-fill-available;
+}
+
+.responsive-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}

@@ -1,0 +1,22 @@
+<div class="container mt-5 mb-5">
+    <div class="d-flex flex-column flex-sm-column flex-sm-column flex-md-row justify-content-between my-5">
+      <mat-card class="mat-elevation-z1 mx-2 my-5 my-sm-5 my-md-0">
+        <mat-card-header class="bg-warning-subtle">
+          <mat-card-title>{{ 'Affectation Comptable' }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="mat-elevation-z1">
+            <p class="p-1">L’affectation comptable correspond au traitement réservé aux bénéfices ou 
+                aux pertes générés sur un exercice comptable. Seules les entreprises soumises 
+                à l’impôt sur les sociétés sont concernées. C’est lors de l’assemblée générale ordinaire, 
+                ou AGO, que les associés, ou l’associé unique en SASU ou en EURL, décident de l’affectation du résultat</p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button class="mat-elevation-z1" 
+            (click)="appStore.changePageTitle(PAGES_TITLES.AccountsType.list)"
+            [routerLink]="[ROUTES_PATHS.dashboard+'/'+ROUTES_PATHS.AccountsType.list]">
+              {{ PAGES_TITLES.dashboardButtonRedirectoList }}</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+</div>
