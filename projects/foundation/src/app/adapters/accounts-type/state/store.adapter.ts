@@ -2,14 +2,14 @@ import { Injectable, inject } from "@angular/core";
 import { AccountsType, AccountsTypeUpdate } from "../../../domain/accounts-type/models";
 import { BaseStoreGateway } from "../../../domain/base/store.gateway";
 import { Id } from "../../../shared/valueObjects/id.vo";
-import { AccountsTypeStore } from "./store.state";
+import { accountsTypeStore } from "./store.state";
 import { Unsubscribable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
   })
 export class AccountsTypeStoreAdapter implements BaseStoreGateway<AccountsType> {
-    store = inject(AccountsTypeStore)
+    store = inject(accountsTypeStore)
 
     load(): Unsubscribable {
         return this.store.load();

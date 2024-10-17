@@ -30,7 +30,7 @@ export class DeleteAccountsTypeDialogComponent implements OnInit {
   ngOnInit() {
     this.store.toggleDialogHadBeenOpened(
       true,
-      PAGES_TITLES.AccountsType.delete + this.currentElement!.classNumber,
+      PAGES_TITLES.accountsTypeDelete + this.currentElement!.classNumber,
       this.data.action,
       BUTTON_LABELS.dialog.delete,
     );

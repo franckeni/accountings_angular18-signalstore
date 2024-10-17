@@ -6,7 +6,8 @@ import {
   AccountsTypeResponseDTO,
   AccountsTypeListResponseDTO, 
   AccountsTypeUpdate, 
-  AccountsTypeSchema} from '../../../domain/accounts-type/models';
+  accountsTypeSchema,
+  accountsTypeListResponseDTO} from '../../../domain/accounts-type/models';
 import { BASE_URLS } from '../../../shared/utils/base.urls';
 import { IAccountsTypeRepositoryService } from '../../../domain/accounts-type/services';
 import { Id } from '../../../shared/valueObjects/id.vo';
@@ -32,7 +33,7 @@ export class AccountsTypeRepositoryService implements IAccountsTypeRepositorySer
   fetchAll(): Observable<AccountsTypeListResponseDTO> {
     return this.http
       .get<AccountsTypeListResponseDTO>(this.endpoint, {params: {"parent_only": true}})
-      .pipe(map((response) => AccountsTypeListResponseDTO.parse(response)));
+      .pipe(map((response) => accountsTypeListResponseDTO.parse(response)));
   }
 
   /**
@@ -43,7 +44,7 @@ export class AccountsTypeRepositoryService implements IAccountsTypeRepositorySer
   findOne(id: Id): Observable<AccountsTypeResponseDTO> {
     return this.http
       .get<AccountsTypeResponseDTO>(this.endpoint+`/${id}`)
-      .pipe(map((response) => AccountsTypeSchema.parse(response)))
+      .pipe(map((response) => accountsTypeSchema.parse(response)))
   }
 
   /**

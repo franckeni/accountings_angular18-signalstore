@@ -1,19 +1,19 @@
 import { z } from 'zod';
-import { Title, TitleSchema } from './values-object/title.vo';
-import { Id, IdSchema } from '../../shared/valueObjects/id.vo';
+import { Title, titleSchema } from './values-object/title.vo';
+import { Id, idSchema } from '../../shared/valueObjects/id.vo';
 import { IBaseModel } from '../base/model';
 import {
   AccountsTypeChildNumber,
-  AccountsTypeChildNumberSchema,
+  accountsTypeChildNumberSchema,
   AccountsTypeParentNumber,
-  AccountsTypeParentNumberSchema,
+  accountsTypeParentNumberSchema,
 } from './values-object/number.vo';
 
 export const accountsTypeSchema = z.object({
-  title: TitleSchema,
-  classNumber: AccountsTypeParentNumberSchema.or(AccountsTypeChildNumberSchema),
-  id: IdSchema,
-  parentId: IdSchema,
+  title: titleSchema,
+  classNumber: accountsTypeParentNumberSchema.or(accountsTypeChildNumberSchema),
+  id: idSchema,
+  parentId: idSchema,
 });
 
 export interface AccountsType extends IBaseModel {

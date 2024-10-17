@@ -21,15 +21,15 @@ export class DialogService<T> {
   }
 
   private getSize(action: Actions): string {
-    let size = DialogSizes.big;
+    let size = DialogSizes.Big;
 
     switch (action) {
-      case Actions.create:
-      case Actions.edit:
-        size = DialogSizes.big;
+      case Actions.Create:
+      case Actions.Edit:
+        size = DialogSizes.Big;
         break;
-      case Actions.delete:
-        size = DialogSizes.extraSmall;
+      case Actions.Delete:
+        size = DialogSizes.ExtraSmall;
         break;
     }
 
