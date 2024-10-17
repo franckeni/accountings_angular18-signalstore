@@ -8,3 +8,7 @@
 #####    - Deployement and configuration with Ansible and Terraform
 
 #### SSR enabled but not implemented in this repo / branch
+
+# State Management with SignalStore
+#####    - appStore: /projects/foundation/src/app/app.store.ts
+#####    - accountsTypeStore : /projects/foundation/src/app/adapters/accounts-type/state/store.state.ts
