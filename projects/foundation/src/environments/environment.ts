@@ -6,7 +6,7 @@ export const environment = {
         }
     },
     aws: {
-        AWS_DEFAULT_REGION: 'eu-west-3',
+        AWS_DEFAULT_REGION: '',
     }
 }
   

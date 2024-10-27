@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
-import { NgFor, AsyncPipe } from '@angular/common';
+import { NgFor, AsyncPipe, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
@@ -30,6 +30,7 @@ import { Id } from '../../../../../../shared/valueObjects/id.vo';
     MatLabel,
     MatSelect,
     NgFor,
+    NgIf,
     MatOption,
     MatHint,
     AsyncPipe,
@@ -42,6 +43,7 @@ export class EditCreateAccountsTypeDialogComponent implements OnInit {
   readonly dialogRef = inject(MatDialogRef<EditCreateAccountsTypeDialogComponent>);
   readonly data = inject<{ item: AccountsTypeResponseDTO | null; action: string }>(MAT_DIALOG_DATA);
 
+  protected readonly classNumberHint = signal(false);
   formBuilder = inject(FormBuilder);
   mainFormGroup!: FormGroup;
   currentElement: AccountsTypeResponseDTO | null = this.data.item ?? this.store.selected();
@@ -60,7 +62,7 @@ export class EditCreateAccountsTypeDialogComponent implements OnInit {
     });
   }
 
-  onSubmitForm(): void {
+  protected onSubmitForm(): void {
     if (this.mainFormGroup.valid) {
       const result: AccountsTypeUpdate = this.mainFormGroup.value;
 
@@ -74,12 +76,18 @@ export class EditCreateAccountsTypeDialogComponent implements OnInit {
     }
   }
 
-  initCurrentDialogInfos(action: string) {
+  protected initCurrentDialogInfos(action: string) {
     const title = this.currentElement
       ? PAGES_TITLES.accountsTypeEdit + this.currentElement?.classNumber
       : PAGES_TITLES.accountsTypeCreate;
     const submitButtonText = this.currentElement ? BUTTON_LABELS.dialog.patch : BUTTON_LABELS.dialog.add;
 
     this.store.toggleDialogHadBeenOpened(true, title, action, submitButtonText);
+  }
+
+  protected isClassNumberExist(event: Event) {
+    const classNumber = parseInt((event.target as HTMLInputElement).value)
+
+    this.classNumberHint.set(!!this.store.items().find(x => x.classNumber == classNumber))
   }
 }
